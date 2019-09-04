@@ -55,4 +55,10 @@ python  -m torch.distributed.launch --nproc_per_node=$NGPUS tools/eval_NR.py --c
 ## Citations
 Please consider citing our paper in your publications if the project helps your research.
 ```
+@inproceedings{zhang2019freeanchor,
+  title   =  {{FreeAnchor}: Learning to Match Anchors for Visual Object Detection},
+  author  =  {Zhang, Xiaosong and Wan, Fang and Liu, Chang and Ji, Rongrong and Ye, Qixiang},
+  booktitle =  {Neural Information Processing Systems},
+  year    =  {2019}
+}
 ```
