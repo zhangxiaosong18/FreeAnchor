@@ -23,7 +23,7 @@ We provide four configuration files in the configs directory.
 | ResNeXt-101-FPN  |  135k |   dev.  | configs/free_anchor_X-101-FPN_j1.5x.yaml  | 
 
 
-#### 4 GPUS (32GB memory per gpu) Training
+#### 4 GPUs Training (4 images per GPU)
 
 ```bash
 cd path_to_free_anchor
@@ -31,7 +31,7 @@ export NGPUS=4
 python -m torch.distributed.launch --nproc_per_node=$NGPUS tools/train_net.py --config-file "path/to/config/file.yaml"
 ```
 
-#### 8 GPUS (>10GB memory per gpu) Training
+#### 8 GPUs Training (2 images per GPU)
 
 ```bash
 cd path_to_free_anchor
