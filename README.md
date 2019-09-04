@@ -5,7 +5,7 @@ The Code for "FreeAnchor: Learning to Match Anchors for Visual Object Detection"
 ## Installation 
 Check [INSTALL.md](INSTALL.md) for installation instructions.
 
-## Perform Training on COCO dataset
+## Usage
 You will need to download the COCO dataset and configure your own paths to the datasets.
 
 For that, all you need to do is to modify `maskrcnn_benchmark/config/paths_catalog.py` to point to the location where your dataset is stored.
@@ -49,4 +49,8 @@ python -m torch.distributed.launch --nproc_per_node=$NGPUS tools/test_net.py --c
 ```bash
 cd path_to_free_anchor
 python  -m torch.distributed.launch --nproc_per_node=$NGPUS tools/eval_NR.py --config-file "path/to/config/file.yaml" MODEL.WEIGHT "path/to/.pth file"
+```
+## Citations
+Please consider citing our paper in your publications if the project helps your research.
+```
 ```
