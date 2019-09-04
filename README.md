@@ -2,6 +2,8 @@
 
 The Code for "FreeAnchor: Learning to Match Anchors for Visual Object Detection", available at [https://arxiv.org/abs/](https://arxiv.org/abs/). 
 
+![architecture](architecture.png)
+
 ## Installation 
 Check [INSTALL.md](INSTALL.md) for installation instructions.
 
