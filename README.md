@@ -1,6 +1,6 @@
 ## FreeAnchor
 
-The code is based on the [maskrcnn-benchmark](https://github.com/facebookresearch/maskrcnn-benchmark).
+The Code for "FreeAnchor: Learning to Match Anchors for Visual Object Detection", available at [https://arxiv.org/abs/](https://arxiv.org/abs/). 
 
 ## Installation 
 Check [INSTALL.md](INSTALL.md) for installation instructions.
