@@ -36,14 +36,14 @@ pip install pycocotools
 
 # install FreeAnchor
 git clone https://github.com/zhangxiaosong18/FreeAnchor.git
-cd FreeAnchor
 
 # the following will install the lib with
 # symbolic links, so that you can modify
 # the files if you want and won't need to
 # re-build it
+cd FreeAnchor
 python setup.py build develop
 
 # or if you are on macOS
-# MACOSX_DEPLOYMENT_TARGET=10.9 CC=clang CXX=clang++ python setup.py build develop
+MACOSX_DEPLOYMENT_TARGET=10.9 CC=clang CXX=clang++ python setup.py build develop
 ```
