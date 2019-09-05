@@ -3,7 +3,7 @@
 ### Requirements:
 - Python3
 - PyTorch 1.1 with CUDA support
-- torchvision
+- torchvision 0.2.1
 - pycocotools
 - yacs
 - matplotlib
@@ -29,7 +29,7 @@ pip install ninja yacs cython matplotlib tqdm
 
 # pytorch and torchvision
 # we give the instructions for CUDA 9.0
-conda install pytorch=1.1 torchvision cudatoolkit=9.0 -c pytorch
+conda install pytorch=1.1 torchvision=0.2.1 cudatoolkit=9.0 -c pytorch
 
 # install pycocotools
 pip install pycocotools
