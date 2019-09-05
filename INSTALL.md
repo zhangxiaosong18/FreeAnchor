@@ -28,8 +28,8 @@ conda install ipython
 pip install ninja yacs cython matplotlib tqdm
 
 # pytorch and torchvision
-# we give the instructions for CUDA 9.0
-conda install pytorch=1.1 torchvision=0.2.1 cudatoolkit=9.0 -c pytorch
+# we give the instructions for CUDA 10.0
+conda install pytorch=1.1 torchvision=0.2.1 cudatoolkit=10.0 -c pytorch
 
 # install pycocotools
 pip install pycocotools
