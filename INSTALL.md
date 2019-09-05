@@ -29,13 +29,15 @@ pip install ninja yacs cython matplotlib tqdm
 
 # pytorch and torchvision
 # we give the instructions for CUDA 9.0
-conda install pytorch torchvision cudatoolkit=9.0 -c pytorch
+conda install pytorch=1.1 torchvision cudatoolkit=9.0 -c pytorch
 
 # install pycocotools
 pip install pycocotools
 
-# install PyTorch maskrcnn-benchmark.
-cd path_to_free_anchor
+# install FreeAnchor
+git clone https://github.com/zhangxiaosong18/FreeAnchor.git
+cd FreeAnchor
+
 # the following will install the lib with
 # symbolic links, so that you can modify
 # the files if you want and won't need to
