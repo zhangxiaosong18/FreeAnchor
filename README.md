@@ -4,6 +4,22 @@ The Code for "FreeAnchor: Learning to Match Anchors for Visual Object Detection"
 
 ![architecture](architecture.png)
 
+Detection performance on COCO:
+
+| Hardware | Backbone | Iteration | Scale jittering<br>train / test | AP<br>(minival) | AP<br>(test-dev) |
+| :--------: | :--------------------: | :---: | :-------: | :--: | :--: |
+| 4  x  V100 | ResNet-50-FPN          |   90k |   N / N   | -    | 39.1 |
+| 4  x  V100 | ResNet-101-FPN         |   90k |   N / N   | -    | 41.3 |
+| 4  x  V100 | ResNet-101-FPN         |  135k |   N / N   | -    | 41.8 |
+| 4  x  V100 | ResNeXt-101-32x8d-FPN  |  135k |   Y / N   | 44.2 | 44.8 |
+
+| Hardware | Backbone | Iteration | Scale jittering<br>train / test | AP<br>(minival) | AP<br>(test-dev) |
+| :--------: | :--------------------: | :---: | :-------: | :--: | :--: |
+| 8 x 2080Ti | ResNet-50-FPN          |   90k |   N / N   | 38.4 | 38.9 |
+| 8 x 2080Ti | ResNet-101-FPN         |   90k |   N / N   | 40.4 | 41.1 |
+| 8 x 2080Ti | ResNet-101-FPN         |  135k |   N / N   | 41.1 | 41.5 |
+| 8 x 2080Ti | ResNeXt-101-32x8d-FPN  |  135k |   Y / N   | 44.2 | 44.9 |
+
 ## Installation 
 Check [INSTALL.md](INSTALL.md) for installation instructions.
 
