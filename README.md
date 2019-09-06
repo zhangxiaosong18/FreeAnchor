@@ -15,12 +15,12 @@ For that, all you need to do is to modify `maskrcnn_benchmark/config/paths_catal
 #### Config Files
 We provide four configuration files in the configs directory.
 
-| Backbone | Iter. | Setting | Config File |  
+| Backbone | Iteration | Scale jittering<br>train / test | Config File |  
 | :-----: | :---: | :---: | :----------: |
-| ResNet-50-FPN    |   90k |   std.  | configs/free_anchor_R-50-FPN_1x.yaml      | 
-| ResNet-101-FPN   |   90k |   std.  | configs/free_anchor_R-101-FPN_1x.yaml     | 
-| ResNet-101-FPN   |  135k |   std.  | configs/free_anchor_R-101-FPN_1.5x.yaml   | 
-| ResNeXt-101-FPN  |  135k |   dev.  | configs/free_anchor_X-101-FPN_j1.5x.yaml  | 
+| ResNet-50-FPN    |   90k |   N / N  | configs/free_anchor_R-50-FPN_1x.yaml      | 
+| ResNet-101-FPN   |   90k |   N / N  | configs/free_anchor_R-101-FPN_1x.yaml     | 
+| ResNet-101-FPN   |  135k |   N / N  | configs/free_anchor_R-101-FPN_1.5x.yaml   | 
+| ResNeXt-101-FPN  |  135k |   Y / N  | configs/free_anchor_X-101-FPN_j1.5x.yaml  | 
 
 
 #### Training with 4 GPUs (4 images per GPU)
