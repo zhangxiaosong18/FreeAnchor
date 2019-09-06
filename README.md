@@ -9,7 +9,7 @@ Detection performance on COCO:
 | Hardware | Backbone | Iteration | Scale jittering<br>train / test | AP<br>(minival) | AP<br>(test-dev) |
 | :--------: | :--------------------: | :---: | :-------: | :--: | :--: |
 | 4  x  V100 | ResNet-50-FPN          |   90k |   N / N   | -    | 39.1 |
-| 4  x  V100 | ResNet-101-FPN         |   90k |   N / N   | 41.0 | 41.3 |
+| 4  x  V100 | ResNet-101-FPN         |   90k |   N / N   | -    | 41.3 |
 | 4  x  V100 | ResNet-101-FPN         |  135k |   N / N   | -    | 41.8 |
 | 4  x  V100 | ResNeXt-101-32x8d-FPN  |  135k |   Y / N   | 44.2 | 44.8 |
 
