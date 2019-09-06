@@ -20,7 +20,7 @@ We provide four configuration files in the configs directory.
 | ResNet-50-FPN    |   90k |   N / N  | configs/free_anchor_R-50-FPN_1x.yaml      | 
 | ResNet-101-FPN   |   90k |   N / N  | configs/free_anchor_R-101-FPN_1x.yaml     | 
 | ResNet-101-FPN   |  135k |   N / N  | configs/free_anchor_R-101-FPN_1.5x.yaml   | 
-| ResNeXt-101-FPN  |  135k |   Y / N  | configs/free_anchor_X-101-FPN_j1.5x.yaml  | 
+| ResNeXt-101-32x8d-FPN  |  135k |   Y / N  | configs/free_anchor_X-101-FPN_j1.5x.yaml  | 
 
 
 #### Training with 4 GPUs (4 images per GPU)
