@@ -1,6 +1,6 @@
 ## FreeAnchor
 
-The Code for "FreeAnchor: Learning to Match Anchors for Visual Object Detection" \[[arxiv](https://arxiv.org/abs/1909.02466)\]. 
+The Code for "FreeAnchor: Learning to Match Anchors for Visual Object Detection". \[[https://arxiv.org/abs/1909.02466](https://arxiv.org/abs/1909.02466)\]
 
 ![architecture](architecture.png)
 
