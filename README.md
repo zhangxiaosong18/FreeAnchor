@@ -6,19 +6,21 @@ The Code for "FreeAnchor: Learning to Match Anchors for Visual Object Detection"
 
 Detection performance on COCO:
 
-| Hardware | Backbone | Iteration | Scale jittering<br>train / test | AP<br>(minival) | AP<br>(test-dev) |
-| :--------: | :--------------------: | :---: | :-------: | :--: | :--: |
-| 4  x  V100 | ResNet-50-FPN          |   90k |   N / N   | 38.6 | 39.1 |
-| 4  x  V100 | ResNet-101-FPN         |   90k |   N / N   | 41.0 | 41.3 |
-| 4  x  V100 | ResNet-101-FPN         |  135k |   N / N   | 41.2 | 41.8 |
-| 4  x  V100 | ResNeXt-101-32x8d-FPN  |  135k |   Y / N   | 44.2 | 44.8 |
+| Hardware | Backbone | Iteration | Scale jittering<br>train / test | AP<br>(minival) | AP<br>(test-dev) | model link |
+| :--------: | :--------------------: | :---: | :-------: | :--: | :--: | :------------------------: |
+| 4  x  V100 | ResNet-50-FPN          |   90k |   N / N   | 38.6 | 39.1 | [Baidu Cloud](https://pan.baidu.com/s/1ST2nv4s48voofWqwUUwHhw#/)                                                  |
+| 4  x  V100 | ResNet-101-FPN         |   90k |   N / N   | 41.0 | 41.3 | [Baidu Cloud](https://pan.baidu.com/s/1Lfg1Wt0Et60QSP1pU3iLRQ#/)                                                  |
+| 4  x  V100 | ResNet-101-FPN         |  135k |   N / N   | 41.2 | 41.8 | [Baidu Cloud](https://pan.baidu.com/s/1ekr8thnlPmPqxGVjGaUQZg#/)                                                  |
+| 4  x  V100 | ResNeXt-101-32x8d-FPN  |  135k |   Y / N   | 44.2 | 44.8 | [Baidu Cloud](https://pan.baidu.com/s/14UpeLSL8SNVZZUnsVKMnDQ#/)                                                  |
 
-| Hardware | Backbone | Iteration | Scale jittering<br>train / test | AP<br>(minival) | AP<br>(test-dev) |
-| :--------: | :--------------------: | :---: | :-------: | :--: | :--: |
-| 8 x 2080Ti | ResNet-50-FPN          |   90k |   N / N   | 38.4 | 38.9 |
-| 8 x 2080Ti | ResNet-101-FPN         |   90k |   N / N   | 40.4 | 41.1 |
-| 8 x 2080Ti | ResNet-101-FPN         |  135k |   N / N   | 41.1 | 41.5 |
-| 8 x 2080Ti | ResNeXt-101-32x8d-FPN  |  135k |   Y / N   | 44.2 | 44.9 |
+| Hardware | Backbone | Iteration | Scale jittering<br>train / test | AP<br>(minival) | AP<br>(test-dev) | model link |
+| :--------: | :--------------------: | :---: | :-------: | :--: | :--: | :------------------------: |
+| 8 x 2080Ti | ResNet-50-FPN          |   90k |   N / N   | 38.4 | 38.9 | [Baidu Cloud](https://pan.baidu.com/s/1p2hnZPPJvtHCgntUZe2SvA#/)                                                  |
+| 8 x 2080Ti | ResNet-101-FPN         |   90k |   N / N   | 40.4 | 41.1 | [Baidu Cloud](         https://pan.baidu.com/s/1Tz5-flBPLenV9T9vkQIhBg#/)                                                  |
+| 8 x 2080Ti | ResNet-101-FPN         |  135k |   N / N   | 41.1 | 41.5 | [Baidu Cloud](https://pan.baidu.com/s/1efjzVT0y1HDUAUEaaZ8YLg#/)                                                  |
+| 8 x 2080Ti | ResNeXt-101-32x8d-FPN  |  135k |   Y / N   | 44.2 | 44.9 | [Baidu Cloud](      https://pan.baidu.com/s/18NHsQb-ZBRS4Xcfxfmsuyw#/)                                                  |
+
+* Downloads from Google Drive will be available.
 
 ## Installation 
 Check [INSTALL.md](INSTALL.md) for installation instructions.
