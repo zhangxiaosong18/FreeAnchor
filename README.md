@@ -8,19 +8,17 @@ Detection performance on COCO:
 
 | Hardware | Backbone | Iteration | Scale jittering<br>train / test | AP<br>(minival) | AP<br>(test-dev) | model link |
 | :--------: | :--------------------: | :---: | :-------: | :--: | :--: | :------------------------: |
-| 4  x  V100 | ResNet-50-FPN          |   90k |   N / N   | 38.6 | 39.1 | [Baidu Cloud](https://pan.baidu.com/s/1ST2nv4s48voofWqwUUwHhw#/)                                                  |
-| 4  x  V100 | ResNet-101-FPN         |   90k |   N / N   | 41.0 | 41.3 | [Baidu Cloud](https://pan.baidu.com/s/1Lfg1Wt0Et60QSP1pU3iLRQ#/)                                                  |
-| 4  x  V100 | ResNet-101-FPN         |  135k |   N / N   | 41.2 | 41.8 | [Baidu Cloud](https://pan.baidu.com/s/1ekr8thnlPmPqxGVjGaUQZg#/)                                                  |
-| 4  x  V100 | ResNeXt-101-32x8d-FPN  |  135k |   Y / N   | 44.2 | 44.8 | [Baidu Cloud](https://pan.baidu.com/s/14UpeLSL8SNVZZUnsVKMnDQ#/)                                                  |
+| 4  x  V100 | ResNet-50-FPN          |   90k |   N / N   | 38.6 | 39.1 | [Google Drive](https://drive.google.com/file/d/1EH-NlADMrnf-VT3gCQNyN7DMJOgPDxXD/view?usp=sharing)                           [Baidu Drive](https://pan.baidu.com/s/1ST2nv4s48voofWqwUUwHhw#/)                                                                        |
+| 4  x  V100 | ResNet-101-FPN         |   90k |   N / N   | 41.0 | 41.3 | [Google Drive](https://drive.google.com/file/d/1ykjXoLk-tnY7hOu6VlQsJ57AOBO42LPT/view?usp=sharing)                      [Baidu Drive](https://pan.baidu.com/s/1Lfg1Wt0Et60QSP1pU3iLRQ#/)                                                                        |
+| 4  x  V100 | ResNet-101-FPN         |  135k |   N / N   | 41.3 | 41.8 | [Google Drive](https://drive.google.com/file/d/1RtBMzjhrOegCmhUSpI-ndbjjJrrsihB2/view?usp=sharing)                      [Baidu Drive](https://pan.baidu.com/s/1ekr8thnlPmPqxGVjGaUQZg#/)                                                                        |
+| 4  x  V100 | ResNeXt-101-32x8d-FPN  |  135k |   Y / N   | 44.2 | 44.8 | [Google Drive](https://drive.google.com/file/d/1RFQuA-6_h4Cb8Np8cjvBEbKlqcH7w5mk/view?usp=sharing)                              [Baidu Drive](https://pan.baidu.com/s/14UpeLSL8SNVZZUnsVKMnDQ#/)                                                                        |
 
 | Hardware | Backbone | Iteration | Scale jittering<br>train / test | AP<br>(minival) | AP<br>(test-dev) | model link |
 | :--------: | :--------------------: | :---: | :-------: | :--: | :--: | :------------------------: |
-| 8 x 2080Ti | ResNet-50-FPN          |   90k |   N / N   | 38.4 | 38.9 | [Baidu Cloud](https://pan.baidu.com/s/1p2hnZPPJvtHCgntUZe2SvA#/)                                                  |
-| 8 x 2080Ti | ResNet-101-FPN         |   90k |   N / N   | 40.4 | 41.1 | [Baidu Cloud](         https://pan.baidu.com/s/1Tz5-flBPLenV9T9vkQIhBg#/)                                                  |
-| 8 x 2080Ti | ResNet-101-FPN         |  135k |   N / N   | 41.1 | 41.5 | [Baidu Cloud](https://pan.baidu.com/s/1efjzVT0y1HDUAUEaaZ8YLg#/)                                                  |
-| 8 x 2080Ti | ResNeXt-101-32x8d-FPN  |  135k |   Y / N   | 44.2 | 44.9 | [Baidu Cloud](      https://pan.baidu.com/s/18NHsQb-ZBRS4Xcfxfmsuyw#/)                                                  |
-
-* Downloads from Google Drive will be available.
+| 8 x 2080Ti | ResNet-50-FPN          |   90k |   N / N   | 38.4 | 38.9 | [Google Drive](https://drive.google.com/file/d/1YZ63xD4f-8d4Ozcz1H8rCTePIK2fXeea/view?usp=sharing)                      [Baidu Drive](https://pan.baidu.com/s/1p2hnZPPJvtHCgntUZe2SvA#/)                                                                        |
+| 8 x 2080Ti | ResNet-101-FPN         |   90k |   N / N   | 40.4 | 41.1 | [Google Drive](https://drive.google.com/file/d/1zeGRYhMAgSVWC9ARGvXdVF0U5KSE8WMQ/view?usp=sharing)                      [Baidu Drive](https://pan.baidu.com/s/1Tz5-flBPLenV9T9vkQIhBg#/)                                                                                |
+| 8 x 2080Ti | ResNet-101-FPN         |  135k |   N / N   | 41.1 | 41.5 | [Google Drive](https://drive.google.com/file/d/1al9itwiPXX8lVU1uFvzXL7BnBw9hBDnI/view?usp=sharing)                      [Baidu Drive](https://pan.baidu.com/s/1efjzVT0y1HDUAUEaaZ8YLg#/)                                                                        |
+| 8 x 2080Ti | ResNeXt-101-32x8d-FPN  |  135k |   Y / N   | 44.2 | 44.9 | [Google Drive](https://drive.google.com/file/d/1vZuV4uSDR6t1Va_8E-iS9Ht7PutC_JDd/view?usp=sharing)                      [Baidu Drive](https://pan.baidu.com/s/18NHsQb-ZBRS4Xcfxfmsuyw#/)                                                                                   |
 
 ## Installation 
 Check [INSTALL.md](INSTALL.md) for installation instructions.
