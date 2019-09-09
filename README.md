@@ -20,6 +20,9 @@ Detection performance on COCO:
 | 8 x 2080Ti | ResNet-101-FPN         |  135k |   N / N   | 41.1 | 41.5 | [Google Drive](https://drive.google.com/file/d/1al9itwiPXX8lVU1uFvzXL7BnBw9hBDnI/view?usp=sharing)                  <br>[Baidu Drive](https://pan.baidu.com/s/1efjzVT0y1HDUAUEaaZ8YLg#/)                                                                        |
 | 8 x 2080Ti | ResNeXt-101-32x8d-FPN  |  135k |   Y / N   | 44.2 | 44.9 | [Google Drive](https://drive.google.com/file/d/1vZuV4uSDR6t1Va_8E-iS9Ht7PutC_JDd/view?usp=sharing)                  <br>[Baidu Drive](https://pan.baidu.com/s/18NHsQb-ZBRS4Xcfxfmsuyw#/)                                                                                   |
 
+| Hardware | Backbone | Iteration | Scale jittering<br>train / test | AP<br>(minival) | AP<br>(test-dev) | model link |
+| :--------: | :--------------------: | :---: | :-------: | :--: | :--: | :------------------------: |
+| 8 x 2080Ti | ResNet-101-FPN         |  180k |   Y / N   | 42.7 | 43.1 | -                          |
 ## Installation 
 Check [INSTALL.md](INSTALL.md) for installation instructions.
 
