@@ -22,7 +22,8 @@ Detection performance on COCO:
 
 | Hardware | Backbone | Iteration | Scale jittering<br>train / test | AP<br>(minival) | AP<br>(test-dev) | model link |
 | :--------: | :--------------------: | :---: | :-------: | :--: | :--: | :------------------------: |
-| 8 x 2080Ti | ResNet-101-FPN         |  180k |   Y / N   | 42.7 | 43.1 | -                          |
+| 8 x 2080Ti | ResNet-101-FPN         |  180k |   Y / N   | 42.7 | 43.1 | [Google Drive](https://drive.google.com/file/d/1XxOGpE5-OX5mW5fee1jxXxFhO4vmo3fk/view?usp=sharing)                                                 |
+
 ## Installation 
 Check [INSTALL.md](INSTALL.md) for installation instructions.
 
