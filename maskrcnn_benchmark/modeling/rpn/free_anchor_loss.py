@@ -102,26 +102,38 @@ class FreeAnchorLossComputation(object):
             labels_ = targets_.get_field("labels") - 1
 
             with torch.set_grad_enabled(False):
+                # box_localization: a_{j}^{loc}, shape: [j, 4]
                 box_localization = self.box_coder.decode(box_regression_, anchors_.bbox)
+
+                # object_box_iou: IoU_{ij}^{loc}, shape: [i, j]
                 object_box_iou = boxlist_iou(
                     targets_,
                     BoxList(box_localization, anchors_.size, mode='xyxy')
                 )
-                H = object_box_iou.max(dim=1, keepdim=True).values.clamp(min=self.bbox_threshold+1e-12)
+
+                t1 = self.bbox_threshold
+                t2 = object_box_iou.max(dim=1, keepdim=True).values.clamp(min=t1 + 1e-12)
+
+                # object_box_prob: P{a_{j} -> b_{i}}, shape: [i, j]
                 object_box_prob = (
-                    (object_box_iou - self.bbox_threshold) / (H - self.bbox_threshold)
+                    (object_box_iou - t1) / (t2 - t1)
                 ).clamp(min=0, max=1)
 
                 indices = torch.stack([torch.arange(len(labels_)).type_as(labels_), labels_], dim=0)
 
+                # object_cls_box_prob: P{a_{j} -> b_{i}}, shape: [i, c, j]
+                object_cls_box_prob = torch.sparse_coo_tensor(indices, object_box_prob)
+
+                # image_box_iou: P{a_{j} \in A_{+}}, shape: [j, c]
                 """
-                to implement image_box_iou = torch.sparse.max(
-                                  torch.sparse_coo_tensor(indices, object_box_iou), dim=0
-                             )
+                from "start" to "end" implement:
+                
+                image_box_iou = torch.sparse.max(object_cls_box_prob, dim=0).t()
+                
                 """
                 # start
                 indices = torch.nonzero(torch.sparse.sum(
-                    torch.sparse_coo_tensor(indices, object_box_prob), dim=0
+                    object_cls_box_prob, dim=0
                 ).to_dense()).t_()
 
                 if indices.numel() == 0:
@@ -141,27 +153,34 @@ class FreeAnchorLossComputation(object):
 
                 box_prob.append(image_box_prob)
 
+            # construct bags for objects
             match_quality_matrix = boxlist_iou(targets_, anchors_)
             _, matched = torch.topk(match_quality_matrix, self.pre_anchor_topk, dim=1, sorted=False)
             del match_quality_matrix
 
+            # matched_cls_prob: P_{ij}^{cls}
             matched_cls_prob = torch.gather(
                 cls_prob_[matched], 2, labels_.view(-1, 1, 1).repeat(1, self.pre_anchor_topk, 1)
             ).squeeze(2)
 
+            # matched_box_prob: P_{ij}^{loc}
             matched_object_targets = self.box_coder.encode(targets_.bbox.unsqueeze(dim=1), anchors_.bbox[matched])
             retinanet_regression_loss = smooth_l1_loss(
                 box_regression_[matched], matched_object_targets, *self.smooth_l1_loss_param
             )
             matched_box_prob = torch.exp(-retinanet_regression_loss)
 
+            # positive_losses: { -log( Mean-max(P_{ij}^{cls} * P_{ij}^{loc}) ) }
             positive_numels += len(targets_)
             positive_losses.append(self.positive_bag_loss_func(matched_cls_prob * matched_box_prob, dim=1))
 
+        # positive_loss: \sum_{i}{ -log( Mean-max(P_{ij}^{cls} * P_{ij}^{loc}) ) } / ||B||
         positive_loss = torch.cat(positive_losses).sum() / max(1, positive_numels)
 
+        # box_prob: P{a_{j} \in A_{+}}
         box_prob = torch.stack(box_prob, dim=0)
 
+        # negative_loss: \sum_{j}{ FL( (1 - P{a_{j} \in A_{+}}) * (1 - P_{j}^{bg}) ) } / n||B||
         negative_loss = self.negative_bag_loss_func(
             cls_prob * (1 - box_prob), self.focal_loss_gamma
         ) / max(1, positive_numels * self.pre_anchor_topk)
@@ -181,9 +200,11 @@ def smooth_l1_loss(pred, target, weight, beta):
 
 
 def positive_bag_loss(logits, *args, **kwargs):
+    # bag_prob = Mean-max(logits)
     weight = 1 / clip(1 - logits, 1e-12, None)
     weight /= weight.sum(*args, **kwargs).unsqueeze(dim=-1)
     bag_prob = (weight * logits).sum(*args, **kwargs)
+    # positive_bag_loss = -log(bag_prob)
     return F.binary_cross_entropy(bag_prob, torch.ones_like(bag_prob), reduction='none')
 
 
@@ -195,3 +216,4 @@ def focal_loss(logits, gamma):
 
 def make_free_anchor_loss_evaluator(cfg, box_coder):
     return FreeAnchorLossComputation(cfg, box_coder)
+
