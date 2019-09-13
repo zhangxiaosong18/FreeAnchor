@@ -120,17 +120,17 @@ class Polygons(object):
 
         return Polygons(scaled_polygons, size=size, mode=self.mode)
 
-    def convert(self, mode):
-        width, height = self.size
-        if mode == "mask":
-            rles = mask_utils.frPyObjects(
-                [p.numpy() for p in self.polygons], height, width
-            )
-            rle = mask_utils.merge(rles)
-            mask = mask_utils.decode(rle)
-            mask = torch.from_numpy(mask)
-            # TODO add squeeze?
-            return mask
+#     def convert(self, mode):
+#         width, height = self.size
+#         if mode == "mask":
+#             rles = mask_utils.frPyObjects(
+#                 [p.numpy() for p in self.polygons], height, width
+#             )
+#             rle = mask_utils.merge(rles)
+#             mask = mask_utils.decode(rle)
+#             mask = torch.from_numpy(mask)
+#             # TODO add squeeze?
+#             return mask
 
     def __repr__(self):
         s = self.__class__.__name__ + "("
