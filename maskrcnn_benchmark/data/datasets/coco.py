@@ -48,9 +48,9 @@ class COCODataset(torchvision.datasets.coco.CocoDetection):
         classes = torch.tensor(classes)
         target.add_field("labels", classes)
 
-        masks = [obj["segmentation"] for obj in anno]
-        masks = SegmentationMask(masks, img.size)
-        target.add_field("masks", masks)
+#         masks = [obj["segmentation"] for obj in anno]
+#         masks = SegmentationMask(masks, img.size)
+#         target.add_field("masks", masks)
 
         target = target.clip_to_image(remove_empty=True)
 
