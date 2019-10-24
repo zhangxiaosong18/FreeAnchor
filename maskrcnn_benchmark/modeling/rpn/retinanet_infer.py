@@ -140,8 +140,17 @@ class RetinaNetPostProcessor(torch.nn.Module):
                 )
             )
 
-        boxlists = list(zip(*sampled_boxes))
-        boxlists = [cat_boxlist(boxlist) for boxlist in boxlists]
+        sampled_boxes = list(zip(*sampled_boxes))
+        boxlists = []
+        for boxlist in sampled_boxes:
+            resized_list = []
+            size = boxlist[-1].size
+            for box in boxlist:
+                if box.size == size:
+                    resized_list.append(box)
+                else:
+                    resized_list.append(box.resize(size))
+            boxlists.append(cat_boxlist(resized_list))
 
         boxlists = self.select_over_all_levels(boxlists)
 
