@@ -44,7 +44,10 @@ class FreeAnchorLossComputation(object):
         """
         self.box_coder = box_coder
         self.num_classes = cfg.RETINANET.NUM_CLASSES - 1
+<<<<<<< HEAD
+=======
         self.iou_threshold = cfg.FREEANCHOR.IOU_THRESHOLD
+>>>>>>> de5b40d0dc2a6009b041101d9fb6a9aa34e0e0b3
         self.pre_anchor_topk = cfg.FREEANCHOR.PRE_ANCHOR_TOPK
         self.smooth_l1_loss_param = (cfg.FREEANCHOR.BBOX_REG_WEIGHT, cfg.FREEANCHOR.BBOX_REG_BETA)
         self.bbox_threshold = cfg.FREEANCHOR.BBOX_THRESHOLD
@@ -216,4 +219,7 @@ def focal_loss(logits, gamma):
 
 def make_free_anchor_loss_evaluator(cfg, box_coder):
     return FreeAnchorLossComputation(cfg, box_coder)
+<<<<<<< HEAD
+=======
 
+>>>>>>> de5b40d0dc2a6009b041101d9fb6a9aa34e0e0b3

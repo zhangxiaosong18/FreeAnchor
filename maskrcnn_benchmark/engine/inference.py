@@ -360,8 +360,13 @@ def inference(
     # convert to a torch.device for efficiency
     device = torch.device(device)
     num_devices = (
+<<<<<<< HEAD
+        torch.distributed.get_world_size()
+        if torch.distributed.is_initialized()
+=======
         torch.distributed.deprecated.get_world_size()
         if torch.distributed.deprecated.is_initialized()
+>>>>>>> de5b40d0dc2a6009b041101d9fb6a9aa34e0e0b3
         else 1
     )
     logger = logging.getLogger("maskrcnn_benchmark.inference")

@@ -4,7 +4,11 @@ import logging
 import time
 
 import torch
+<<<<<<< HEAD
+import torch.distributed as dist
+=======
 from torch.distributed import deprecated as dist
+>>>>>>> de5b40d0dc2a6009b041101d9fb6a9aa34e0e0b3
 
 from maskrcnn_benchmark.utils.comm import get_world_size, get_rank
 from maskrcnn_benchmark.utils.metric_logger import MetricLogger

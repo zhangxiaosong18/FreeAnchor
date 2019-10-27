@@ -104,7 +104,11 @@ def _rename_weights_for_resnet(weights, stage_names):
     new_weights = OrderedDict()
     for k in original_keys:
         v = weights[k]
+<<<<<<< HEAD
+        if "_momentum" in k or k == "lr" or k == "weight_order":
+=======
         if "_momentum" in k:
+>>>>>>> de5b40d0dc2a6009b041101d9fb6a9aa34e0e0b3
             continue
         # if 'fc1000' in k:
         #     continue

@@ -3,6 +3,12 @@
 Implements the Generalized R-CNN framework
 """
 
+<<<<<<< HEAD
+from torch import nn
+from maskrcnn_benchmark.structures.image_list import to_image_list
+from ..backbone import build_backbone
+from ..rpn.retinanet import build_retinanet
+=======
 import torch
 from torch import nn
 
@@ -13,6 +19,7 @@ from ..rpn.retinanet import build_retinanet
 from maskrcnn_benchmark.modeling.roi_heads.mask_head.mask_head import build_roi_mask_head
 #from maskrcnn_benchmark.modeling.roi_heads.sparsemask_head.mask_head import build_sparse_mask_head
 from maskrcnn_benchmark.structures.boxlist_ops import cat_boxlist
+>>>>>>> de5b40d0dc2a6009b041101d9fb6a9aa34e0e0b3
 import copy
 
 
@@ -30,12 +37,15 @@ class RetinaNet(nn.Module):
         self.cfg = copy.deepcopy(cfg)
         self.backbone = build_backbone(cfg)
         self.rpn = build_retinanet(cfg)
+<<<<<<< HEAD
+=======
         self.mask = None
         if cfg.MODEL.MASK_ON:
             self.mask = build_roi_mask_head(cfg)
         #if cfg.MODEL.SPARSE_MASK_ON:
         #    self.mask = build_sparse_mask_head(cfg)
 
+>>>>>>> de5b40d0dc2a6009b041101d9fb6a9aa34e0e0b3
 
     def forward(self, images, targets=None):
         """
@@ -61,6 +71,11 @@ class RetinaNet(nn.Module):
             rpn_features = features[1:]
         (anchors, detections), detector_losses = self.rpn(images, rpn_features, targets)
         if self.training:
+<<<<<<< HEAD
+            return {detector_losses}
+        else:
+            return detections
+=======
             losses = {}
             losses.update(detector_losses)
             if self.mask:
@@ -111,3 +126,4 @@ class RetinaNet(nn.Module):
                     x, detections, mask_losses = self.mask(features, proposals, targets)
             return detections
 
+>>>>>>> de5b40d0dc2a6009b041101d9fb6a9aa34e0e0b3

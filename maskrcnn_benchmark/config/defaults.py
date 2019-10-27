@@ -254,9 +254,12 @@ _C.RETINANET.BBOX_REG_WEIGHT = 1.0
 # Smooth L1 loss beta for bbox regression
 _C.RETINANET.BBOX_REG_BETA = 0.11
 
+<<<<<<< HEAD
+=======
 # Use Self-Adjust Smooth L1 Loss
 _C.RETINANET.SELFADJUST_SMOOTH_L1 = False
 
+>>>>>>> de5b40d0dc2a6009b041101d9fb6a9aa34e0e0b3
 # During inference, #locs to select based on cls score before NMS is performed
 # per FPN level
 _C.RETINANET.PRE_NMS_TOP_N = 1000
@@ -307,11 +310,18 @@ _C.RETINANET.LOW_QUALITY_THRESHOLD = 0.0
 # ---------------------------------------------------------------------------- #
 _C.FREEANCHOR = CN()
 _C.FREEANCHOR.FREEANCHOR_ON = False
+<<<<<<< HEAD
+_C.FREEANCHOR.PRE_ANCHOR_TOPK = 50
+_C.FREEANCHOR.BBOX_REG_WEIGHT = 0.75
+_C.FREEANCHOR.BBOX_REG_BETA = 0.11
+_C.FREEANCHOR.BBOX_THRESHOLD = 0.6
+=======
 _C.FREEANCHOR.IOU_THRESHOLD = 0.3
 _C.FREEANCHOR.PRE_ANCHOR_TOPK = 200
 _C.FREEANCHOR.BBOX_REG_WEIGHT = 1.0
 _C.FREEANCHOR.BBOX_REG_BETA = 0.11
 _C.FREEANCHOR.BBOX_THRESHOLD = 0.5
+>>>>>>> de5b40d0dc2a6009b041101d9fb6a9aa34e0e0b3
 _C.FREEANCHOR.FOCAL_LOSS_ALPHA = 0.5
 _C.FREEANCHOR.FOCAL_LOSS_GAMMA = 2.0
 
@@ -363,8 +373,12 @@ _C.TEST.EXPECTED_RESULTS_SIGMA_TOL = 4
 # This is global, so if we have 8 GPUs and IMS_PER_BATCH = 16, each GPU will
 # see 2 images per batch
 _C.TEST.IMS_PER_BATCH = 8
+<<<<<<< HEAD
+_C.TEST.MULTI_SCLAES = ((480, 800), (640, 1067), (800, 1333), (960, 1600), (1120, 1867), (1280, 2133))
+=======
 
 
+>>>>>>> de5b40d0dc2a6009b041101d9fb6a9aa34e0e0b3
 _C.TEST.DETECTIONS_PER_IMG =100
 # Misc options
 # ---------------------------------------------------------------------------- #

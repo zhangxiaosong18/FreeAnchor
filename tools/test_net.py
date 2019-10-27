@@ -41,7 +41,11 @@ def main():
 
     if distributed:
         torch.cuda.set_device(args.local_rank)
+<<<<<<< HEAD
+        torch.distributed.init_process_group(
+=======
         torch.distributed.deprecated.init_process_group(
+>>>>>>> de5b40d0dc2a6009b041101d9fb6a9aa34e0e0b3
             backend="nccl", init_method="env://"
         )
 

@@ -13,6 +13,23 @@ import torch
 
 
 def get_world_size():
+<<<<<<< HEAD
+    if not torch.distributed.is_initialized():
+        return 1
+    return torch.distributed.get_world_size()
+
+
+def get_rank():
+    if not torch.distributed.is_initialized():
+        return 0
+    return torch.distributed.get_rank()
+
+
+def is_main_process():
+    if not torch.distributed.is_initialized():
+        return True
+    return torch.distributed.get_rank() == 0
+=======
     if not torch.distributed.deprecated.is_initialized():
         return 1
     return torch.distributed.deprecated.get_world_size()
@@ -28,6 +45,7 @@ def is_main_process():
     if not torch.distributed.deprecated.is_initialized():
         return True
     return torch.distributed.deprecated.get_rank() == 0
+>>>>>>> de5b40d0dc2a6009b041101d9fb6a9aa34e0e0b3
 
 
 def synchronize():
@@ -35,10 +53,17 @@ def synchronize():
     Helper function to synchronize between multiple processes when
     using distributed training
     """
+<<<<<<< HEAD
+    if not torch.distributed.is_initialized():
+        return
+    world_size = torch.distributed.get_world_size()
+    rank = torch.distributed.get_rank()
+=======
     if not torch.distributed.deprecated.is_initialized():
         return
     world_size = torch.distributed.deprecated.get_world_size()
     rank = torch.distributed.deprecated.get_rank()
+>>>>>>> de5b40d0dc2a6009b041101d9fb6a9aa34e0e0b3
     if world_size == 1:
         return
 
@@ -47,7 +72,11 @@ def synchronize():
             tensor = torch.tensor(0, device="cuda")
         else:
             tensor = torch.tensor(1, device="cuda")
+<<<<<<< HEAD
+        torch.distributed.broadcast(tensor, r)
+=======
         torch.distributed.deprecated.broadcast(tensor, r)
+>>>>>>> de5b40d0dc2a6009b041101d9fb6a9aa34e0e0b3
         while tensor.item() == 1:
             time.sleep(1)
 
@@ -103,11 +132,19 @@ def scatter_gather(data):
     # each process will then serialize the data to the folder defined by
     # the main process, and then the main process reads all of the serialized
     # files and returns them in a list
+<<<<<<< HEAD
+    if not torch.distributed.is_initialized():
+        return [data]
+    synchronize()
+    # get rank of the current process
+    rank = torch.distributed.get_rank()
+=======
     if not torch.distributed.deprecated.is_initialized():
         return [data]
     synchronize()
     # get rank of the current process
     rank = torch.distributed.deprecated.get_rank()
+>>>>>>> de5b40d0dc2a6009b041101d9fb6a9aa34e0e0b3
 
     # the data to communicate should be small
     data_to_communicate = torch.empty(256, dtype=torch.uint8, device="cuda")
@@ -119,7 +156,11 @@ def scatter_gather(data):
 
     synchronize()
     # the main process (rank=0) communicates the data to all processes
+<<<<<<< HEAD
+    torch.distributed.broadcast(data_to_communicate, 0)
+=======
     torch.distributed.deprecated.broadcast(data_to_communicate, 0)
+>>>>>>> de5b40d0dc2a6009b041101d9fb6a9aa34e0e0b3
 
     # get the data that was communicated
     tmp_dir = _decode(data_to_communicate)
@@ -135,7 +176,11 @@ def scatter_gather(data):
     # only the master process returns the data
     if rank == 0:
         data_list = []
+<<<<<<< HEAD
+        world_size = torch.distributed.get_world_size()
+=======
         world_size = torch.distributed.deprecated.get_world_size()
+>>>>>>> de5b40d0dc2a6009b041101d9fb6a9aa34e0e0b3
         for r in range(world_size):
             file_path = os.path.join(tmp_dir, file_template.format(r))
             d = torch.load(file_path)

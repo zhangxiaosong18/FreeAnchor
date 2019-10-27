@@ -4,12 +4,18 @@ file
 """
 
 import torch
+<<<<<<< HEAD
+from ..utils import cat
+
+from maskrcnn_benchmark.layers import SmoothL1Loss
+=======
 from torch.nn import functional as F
 
 from ..utils import cat
 
 from maskrcnn_benchmark.layers import SmoothL1Loss
 from maskrcnn_benchmark.layers import AdjustSmoothL1Loss
+>>>>>>> de5b40d0dc2a6009b041101d9fb6a9aa34e0e0b3
 from maskrcnn_benchmark.layers import SigmoidFocalLoss
 from maskrcnn_benchmark.modeling.matcher import Matcher
 from maskrcnn_benchmark.structures.boxlist_ops import boxlist_iou
@@ -36,6 +42,11 @@ class RetinaNetLossComputation(object):
             cfg.RETINANET.LOSS_GAMMA,
             cfg.RETINANET.LOSS_ALPHA
         )
+<<<<<<< HEAD
+        self.regression_loss = SmoothL1Loss(
+            beta=cfg.RETINANET.BBOX_REG_BETA
+        )
+=======
         if cfg.RETINANET.SELFADJUST_SMOOTH_L1:
             self.regression_loss = AdjustSmoothL1Loss(
                 4,
@@ -45,6 +56,7 @@ class RetinaNetLossComputation(object):
             self.regression_loss = SmoothL1Loss(
                 beta=cfg.RETINANET.BBOX_REG_BETA
             )
+>>>>>>> de5b40d0dc2a6009b041101d9fb6a9aa34e0e0b3
 
     def match_targets_to_anchors(self, anchor, target):
         match_quality_matrix = boxlist_iou(target, anchor)

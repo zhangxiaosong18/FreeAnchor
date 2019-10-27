@@ -4,7 +4,11 @@
 # FIXME remove this once c10d fixes the bug it has
 import math
 import torch
+<<<<<<< HEAD
+import torch.distributed as dist
+=======
 import torch.distributed.deprecated as dist
+>>>>>>> de5b40d0dc2a6009b041101d9fb6a9aa34e0e0b3
 from torch.utils.data.sampler import Sampler
 
 

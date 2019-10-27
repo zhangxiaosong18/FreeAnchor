@@ -35,7 +35,11 @@ def train(cfg, local_rank, distributed):
     scheduler = make_lr_scheduler(cfg, optimizer)
 
     if distributed:
+<<<<<<< HEAD
+        model = torch.nn.parallel.DistributedDataParallel(
+=======
         model = torch.nn.parallel.deprecated.DistributedDataParallel(
+>>>>>>> de5b40d0dc2a6009b041101d9fb6a9aa34e0e0b3
             model, device_ids=[local_rank], output_device=local_rank,
             # this should be removed if we update BatchNorm stats
             broadcast_buffers=False,
@@ -135,8 +139,13 @@ def main():
     args.distributed = num_gpus > 1
 
     if args.distributed:
+<<<<<<< HEAD
+        torch.cuda.set_device(args.local_rank % torch.cuda.device_count())
+        torch.distributed.init_process_group(
+=======
         torch.cuda.set_device(args.local_rank)
         torch.distributed.deprecated.init_process_group(
+>>>>>>> de5b40d0dc2a6009b041101d9fb6a9aa34e0e0b3
             backend="nccl", init_method="env://"
         )
 

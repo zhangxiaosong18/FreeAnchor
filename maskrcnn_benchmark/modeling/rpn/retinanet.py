@@ -1,14 +1,21 @@
 import numpy as np
 import torch
+<<<<<<< HEAD
+=======
 import torch.nn.functional as F
+>>>>>>> de5b40d0dc2a6009b041101d9fb6a9aa34e0e0b3
 from torch import nn
 
 from maskrcnn_benchmark.modeling.box_coder import BoxCoder
 from .retinanet_loss import make_retinanet_loss_evaluator
 from .free_anchor_loss import make_free_anchor_loss_evaluator
 from .anchor_generator import make_anchor_generator_retinanet
+<<<<<<< HEAD
+from .retinanet_infer import make_retinanet_postprocessor
+=======
 from .retinanet_infer import  make_retinanet_postprocessor
 from .retinanet_detail_infer import  make_retinanet_detail_postprocessor
+>>>>>>> de5b40d0dc2a6009b041101d9fb6a9aa34e0e0b3
 
 
 class RetinaNetHead(torch.nn.Module):
@@ -110,16 +117,24 @@ class RetinaNetModule(torch.nn.Module):
         head = RetinaNetHead(cfg)
         box_coder = BoxCoder(weights=(10., 10., 5., 5.))
 
+<<<<<<< HEAD
+        if self.cfg.MODEL.SPARSE_MASK_ON or self.cfg.MODEL.SPARSE_MASK_ON:
+            raise NotImplementedError
+=======
         if self.cfg.MODEL.SPARSE_MASK_ON:
             box_selector_test = make_retinanet_detail_postprocessor(
                 cfg, 100, box_coder)
+>>>>>>> de5b40d0dc2a6009b041101d9fb6a9aa34e0e0b3
         else:
             box_selector_test = make_retinanet_postprocessor(
                 cfg, 100, box_coder)
         box_selector_train = None
+<<<<<<< HEAD
+=======
         if self.cfg.MODEL.MASK_ON or self.cfg.MODEL.SPARSE_MASK_ON:
             box_selector_train = make_retinanet_postprocessor(
                 cfg, 100, box_coder)
+>>>>>>> de5b40d0dc2a6009b041101d9fb6a9aa34e0e0b3
 
         loss_evaluator = make_free_anchor_loss_evaluator(cfg, box_coder) if cfg.FREEANCHOR.FREEANCHOR_ON \
             else make_retinanet_loss_evaluator(cfg, box_coder)
@@ -159,16 +174,21 @@ class RetinaNetModule(torch.nn.Module):
             anchors, box_cls, box_regression, targets
         )
         detections = None
+<<<<<<< HEAD
+=======
         if self.cfg.MODEL.MASK_ON or self.cfg.MODEL.SPARSE_MASK_ON:
             with torch.no_grad():
                 detections = self.box_selector_train(
                     anchors, box_cls, box_regression
                 )
+>>>>>>> de5b40d0dc2a6009b041101d9fb6a9aa34e0e0b3
 
         return (anchors, detections), losses
 
     def _forward_test(self, anchors, box_cls, box_regression):
         boxes = self.box_selector_test(anchors, box_cls, box_regression)
+<<<<<<< HEAD
+=======
         '''
         if self.cfg.MODEL.RPN_ONLY:
             # For end-to-end models, the RPN proposals are an intermediate state
@@ -180,6 +200,7 @@ class RetinaNetModule(torch.nn.Module):
             ]
             boxes = [box[ind] for box, ind in zip(boxes, inds)]
         '''
+>>>>>>> de5b40d0dc2a6009b041101d9fb6a9aa34e0e0b3
         return (anchors, boxes), {}
 
 
