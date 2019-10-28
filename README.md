@@ -6,7 +6,7 @@ This repo is based on maskrcnn-benchmark, and FreeAnchor has also been implement
 
 ![architecture](architecture.png)
 
-Detection performance on COCO:
+Detection performance on COCO
 
 | Hardware | Backbone | Iteration | Scale jittering<br>train / test | AP<br>(minival) | AP<br>(test-dev) | model link |
 | :--------: | :--------------------: | :---: | :-------: | :--: | :--: | :------------------------: |
@@ -62,7 +62,7 @@ export NGPUS=8
 python -m torch.distributed.launch --nproc_per_node=$NGPUS tools/train_net.py --config-file "path/to/config/file.yaml"
 ```
 
-#### Test on MS-COCO test-dev
+#### Test on COCO test-dev
 
 ```bash
 cd path_to_free_anchor
