@@ -40,4 +40,42 @@ We provide four configuration files in the configs directory.
 | configs/free_anchor_R-101-FPN_e2x.yaml    | ResNet-101-FPN          | 180k      | [480, 960]      |
 | configs/free_anchor_X-101-FPN_e2x.yaml    | ResNeXt-64x4d-101-FPN   | 180k      | [480, 960]      |
 
+#### Training with 8 GPUs
+
+```bash
+cd path_to_free_anchor
+export NGPUS=8
+python -m torch.distributed.launch --nproc_per_node=$NGPUS tools/train_net.py --config-file "path/to/config/file.yaml"
+```
+
+#### Test on COCO test-dev
+
+```bash
+cd path_to_free_anchor
+python -m torch.distributed.launch --nproc_per_node=$NGPUS tools/test_net.py --config-file "path/to/config/file.yaml" MODEL.WEIGHT "path/to/.pth file" DATASETS.TEST "('coco_test-dev',)"
+```
+
+#### Multi-scale testing
+
+```bash
+cd path_to_free_anchor
+python -m torch.distributed.launch --nproc_per_node=$NGPUS tools/multi_scale_test.py --config-file "path/to/config/file.yaml" MODEL.WEIGHT "path/to/.pth file" DATASETS.TEST "('coco_test-dev',)"
+```
+
+#### Evaluate NMS Recall
+
+```bash
+cd path_to_free_anchor
+python  -m torch.distributed.launch --nproc_per_node=$NGPUS tools/eval_NR.py --config-file "path/to/config/file.yaml" MODEL.WEIGHT "path/to/.pth file"
+```
+## Citations
+Please consider citing our paper in your publications if the project helps your research.
+```
+@inproceedings{zhang2019freeanchor,
+  title   =  {{FreeAnchor}: Learning to Match Anchors for Visual Object Detection},
+  author  =  {Zhang, Xiaosong and Wan, Fang and Liu, Chang and Ji, Rongrong and Ye, Qixiang},
+  booktitle =  {Neural Information Processing Systems},
+  year    =  {2019}
+}
+```
 
