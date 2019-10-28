@@ -48,4 +48,4 @@ FREEANCHOR:
   BBOX_REG_WEIGHT: 0.75
   FOCAL_LOSS_ALPHA: 0.5
   FOCAL_LOSS_GAMMA: 2.0
-OUTPUT_DIR: outputs/free_anchor_X-101-FPN_j2x+
+OUTPUT_DIR: outputs/free_anchor_X-101-FPN_e2x
