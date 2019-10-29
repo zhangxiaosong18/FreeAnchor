@@ -9,16 +9,16 @@ This repo is based on maskrcnn-benchmark, and FreeAnchor has also been implement
 ### New performance on COCO
 We added multi-scale testing support and updated experiments. The previous version is in [this branch](https://github.com/zhangxiaosong18/FreeAnchor/tree/previous). 
 
-| Backbone        | Iteration | Training scales | Multi-scale<br>testing | AP<br>(minival) | AP<br>(test-dev) | model link |
+| Backbone        | Iteration | Training scales | Multi-scale<br>testing | AP<br>(minival) | AP<br>(test-dev) | Model      |
 | :-------------------: | :-------: | :-------------: | :--------------: | :-------------: | :--------------: | :--------: |
-| ResNet-50-FPN         | 90k       | 800             | N                | 38.7            | 38.7             |            |
-| ResNet-101-FPN        | 90k       | 800             | N                | 40.5            | 40.9             |            |
-| ResNet-101-FPN        | 180k      | [640, 800]      | N                | 42.7            | 43.1             |            |
-| ResNet-101-FPN        | 180k      | [480, 960]      | N                | 43.2            | 43.9             |            |
-| ResNet-101-FPN        | 180k      | [480, 960]      | Y                | 44.7            | 45.2             |            |
-| ResNeXt-64x4d-101-FPN | 180k      | [640, 800]      | N                | 44.5            | 44.9             |            |
-| ResNeXt-64x4d-101-FPN | 180k      | [480, 960]      | N                | 45.6            | 46.0             |            |
-| ResNeXt-64x4d-101-FPN | 180k      | [480, 960]      | Y                | 46.8            | 47.3             |            |
+| ResNet-50-FPN         | 90k       | 800             | N                | 38.7            | 38.7             | [Link](https://pan.cstcloud.cn/s/tfTAL1VSR2c )                                                                                   |
+| ResNet-101-FPN        | 90k       | 800             | N                | 40.5            | 40.9             | [Link](https://pan.cstcloud.cn/s/IEp9vCLlQqA )                                                                                   |
+| ResNet-101-FPN        | 180k      | [640, 800]      | N                | 42.7            | 43.1             | [Link](https://pan.cstcloud.cn/s/DKK9OnNEQmo )                                                                                   |
+| ResNet-101-FPN        | 180k      | [480, 960]      | N                | 43.2            | 43.9             | [Link](https://pan.cstcloud.cn/s/47Za3BNJSho )                                                                                   |
+| ResNet-101-FPN        | 180k      | [480, 960]      | Y                | 44.7            | 45.2             | [Link](https://pan.cstcloud.cn/s/47Za3BNJSho )                                                                                   |
+| ResNeXt-64x4d-101-FPN | 180k      | [640, 800]      | N                | 44.5            | 44.9             | [Link](https://pan.cstcloud.cn/s/db5ylfpmS8g )                                                                                   |
+| ResNeXt-64x4d-101-FPN | 180k      | [480, 960]      | N                | 45.6            | 46.0             | [Link](https://pan.cstcloud.cn/s/fdljMCgSbs )                                                                                    |
+| ResNeXt-64x4d-101-FPN | 180k      | [480, 960]      | Y                | 46.8            | 47.3             | [Link](https://pan.cstcloud.cn/s/fdljMCgSbs )                                                                                    |
 
 **Notes:**
 
