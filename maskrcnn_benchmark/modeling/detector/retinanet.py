@@ -49,6 +49,6 @@ class RetinaNet(nn.Module):
             rpn_features = features[1:]
         (anchors, detections), detector_losses = self.rpn(images, rpn_features, targets)
         if self.training:
-            return {detector_losses}
+            return detector_losses
         else:
             return detections
