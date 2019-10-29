@@ -6,7 +6,7 @@ This repo is based on maskrcnn-benchmark, and FreeAnchor has also been implement
 
 ![architecture](architecture.png)
 
-#### New performance on COCO
+### New performance on COCO
 We added multi-scale testing support and updated experiments. The previous version is in [this branch](https://github.com/zhangxiaosong18/FreeAnchor/tree/previous). 
 
 | Backbone        | Iteration | Training scales | Multi-scale<br>testing | AP<br>(minival) | AP<br>(test-dev) | model link |
