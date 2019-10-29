@@ -15,10 +15,16 @@ We added multi-scale testing support and updated experiments. The previous versi
 | ResNet-101-FPN        | 90k       | 800             | N                | 40.5            | 40.9             |            |
 | ResNet-101-FPN        | 180k      | [640, 800]      | N                | 42.7            | 43.1             |            |
 | ResNet-101-FPN        | 180k      | [480, 960]      | N                | 43.2            | 43.9             |            |
-| ResNet-101-FPN        | 180k      | [480, 960]      | Y                | -               | 45.2             |            |
+| ResNet-101-FPN        | 180k      | [480, 960]      | Y                | 44.7            | 45.2             |            |
 | ResNeXt-64x4d-101-FPN | 180k      | [640, 800]      | N                | 44.5            | 44.9             |            |
 | ResNeXt-64x4d-101-FPN | 180k      | [480, 960]      | N                | 45.6            | 46.0             |            |
-| ResNeXt-64x4d-101-FPN | 180k      | [480, 960]      | Y                | -               | 47.3             |            |
+| ResNeXt-64x4d-101-FPN | 180k      | [480, 960]      | Y                | 46.8            | 47.3             |            |
+
+**Notes:**
+
+- We use 8 GPUs with 2 image / GPU. 
+- In multi-scale testing, we use image scales in {480, 640, 800, 960, 1120, 1280} and max_size are 1.666&times; than scales. 
+
 
 ## Installation 
 Check [INSTALL.md](INSTALL.md) for installation instructions.
