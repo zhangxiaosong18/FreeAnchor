@@ -16,7 +16,7 @@ class MultiScaleRetinaNet(nn.Module):
     def __init__(self, retinanet, scales):
         super(MultiScaleRetinaNet, self).__init__()
         self.retinanet = retinanet
-        self.resizers = [Resize(min_size, retinanet.cfg.INPUT.MAX_SIZE_TEST) for min_size in scales]
+        self.resizers = [Resize(min_size, max_size) for (min_size, max_size) in scales]
 
     def forward(self, images, targets=None):
         """

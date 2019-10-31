@@ -5,7 +5,7 @@ import os
 
 
 class DatasetCatalog(object):
-    DATA_DIR = "/home/ubuntu/Dataset/"
+    DATA_DIR = "/gdata/"
 
     DATASETS = {
         "coco_test-dev": (
@@ -83,6 +83,7 @@ class ModelCatalog(object):
         "MSRA/R-101": "ImageNetPretrained/MSRA/R-101.pkl",
         "MSRA/R-101-GN": "ImageNetPretrained/47592356/R-101-GN.pkl",
         "FAIR/20171220/X-101-32x8d": "ImageNetPretrained/20171220/X-101-32x8d.pkl",
+        "FBResNeXt/X-101-64x4d": "ImageNetPretrained/FBResNeXt/X-101-64x4d.pkl",
     }
 
     C2_DETECTRON_SUFFIX = "output/train/{}coco_2014_train%3A{}coco_2014_valminusminival/generalized_rcnn/model_final.pkl"

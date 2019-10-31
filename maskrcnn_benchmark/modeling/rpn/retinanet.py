@@ -1,14 +1,12 @@
 import numpy as np
 import torch
-import torch.nn.functional as F
 from torch import nn
 
 from maskrcnn_benchmark.modeling.box_coder import BoxCoder
 from .retinanet_loss import make_retinanet_loss_evaluator
 from .free_anchor_loss import make_free_anchor_loss_evaluator
 from .anchor_generator import make_anchor_generator_retinanet
-from .retinanet_infer import  make_retinanet_postprocessor
-from .retinanet_detail_infer import  make_retinanet_detail_postprocessor
+from .retinanet_infer import make_retinanet_postprocessor
 
 
 class RetinaNetHead(torch.nn.Module):
@@ -110,16 +108,12 @@ class RetinaNetModule(torch.nn.Module):
         head = RetinaNetHead(cfg)
         box_coder = BoxCoder(weights=(10., 10., 5., 5.))
 
-        if self.cfg.MODEL.SPARSE_MASK_ON:
-            box_selector_test = make_retinanet_detail_postprocessor(
-                cfg, 100, box_coder)
+        if self.cfg.MODEL.SPARSE_MASK_ON or self.cfg.MODEL.SPARSE_MASK_ON:
+            raise NotImplementedError
         else:
             box_selector_test = make_retinanet_postprocessor(
                 cfg, 100, box_coder)
         box_selector_train = None
-        if self.cfg.MODEL.MASK_ON or self.cfg.MODEL.SPARSE_MASK_ON:
-            box_selector_train = make_retinanet_postprocessor(
-                cfg, 100, box_coder)
 
         loss_evaluator = make_free_anchor_loss_evaluator(cfg, box_coder) if cfg.FREEANCHOR.FREEANCHOR_ON \
             else make_retinanet_loss_evaluator(cfg, box_coder)
@@ -159,27 +153,11 @@ class RetinaNetModule(torch.nn.Module):
             anchors, box_cls, box_regression, targets
         )
         detections = None
-        if self.cfg.MODEL.MASK_ON or self.cfg.MODEL.SPARSE_MASK_ON:
-            with torch.no_grad():
-                detections = self.box_selector_train(
-                    anchors, box_cls, box_regression
-                )
 
         return (anchors, detections), losses
 
     def _forward_test(self, anchors, box_cls, box_regression):
         boxes = self.box_selector_test(anchors, box_cls, box_regression)
-        '''
-        if self.cfg.MODEL.RPN_ONLY:
-            # For end-to-end models, the RPN proposals are an intermediate state
-            # and don't bother to sort them in decreasing score order. For RPN-only
-            # models, the proposals are the final output and we return them in
-            # high-to-low confidence order.
-            inds = [
-                box.get_field("objectness").sort(descending=True)[1] for box in boxes
-            ]
-            boxes = [box[ind] for box, ind in zip(boxes, inds)]
-        '''
         return (anchors, boxes), {}
 
 

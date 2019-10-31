@@ -6,25 +6,24 @@ This repo is based on maskrcnn-benchmark, and FreeAnchor has also been implement
 
 ![architecture](architecture.png)
 
-Detection performance on COCO
+### New performance on COCO
+We added multi-scale testing support and updated experiments. The previous version is in [this branch](https://github.com/zhangxiaosong18/FreeAnchor/tree/previous). 
 
-| Hardware | Backbone | Iteration | Scale jittering<br>train / test | AP<br>(minival) | AP<br>(test-dev) | model link |
-| :--------: | :--------------------: | :---: | :-------: | :--: | :--: | :------------------------: |
-| 4  x  V100 | ResNet-50-FPN          |   90k |   N / N   | 38.6 | 39.1 | [Google Drive](https://drive.google.com/file/d/1EH-NlADMrnf-VT3gCQNyN7DMJOgPDxXD/view?usp=sharing)                       <br>[Baidu Drive](https://pan.baidu.com/s/1ST2nv4s48voofWqwUUwHhw#/)                                                                        |
-| 4  x  V100 | ResNet-101-FPN         |   90k |   N / N   | 41.0 | 41.3 | [Google Drive](https://drive.google.com/file/d/1ykjXoLk-tnY7hOu6VlQsJ57AOBO42LPT/view?usp=sharing)                  <br>[Baidu Drive](https://pan.baidu.com/s/1Lfg1Wt0Et60QSP1pU3iLRQ#/)                                                                        |
-| 4  x  V100 | ResNet-101-FPN         |  135k |   N / N   | 41.3 | 41.8 | [Google Drive](https://drive.google.com/file/d/1RtBMzjhrOegCmhUSpI-ndbjjJrrsihB2/view?usp=sharing)                  <br>[Baidu Drive](https://pan.baidu.com/s/1ekr8thnlPmPqxGVjGaUQZg#/)                                                                        |
-| 4  x  V100 | ResNeXt-101-32x8d-FPN  |  135k |   Y / N   | 44.2 | 44.8 | [Google Drive](https://drive.google.com/file/d/1RFQuA-6_h4Cb8Np8cjvBEbKlqcH7w5mk/view?usp=sharing)                          <br>[Baidu Drive](https://pan.baidu.com/s/14UpeLSL8SNVZZUnsVKMnDQ#/)                                                                        |
+| Backbone        | Iteration | Training scales | Multi-scale<br>testing | AP<br>(minival) | AP<br>(test-dev) | Model      |
+| :-------------------: | :-------: | :-------------: | :--------------: | :-------------: | :--------------: | :--------: |
+| ResNet-50-FPN         | 90k       | 800             | N                | 38.7            | 38.7             | [Link](https://drive.google.com/open?id=1o-VvpOIwYCPxyas8n6OngpOznlVy0T6k )                                                      |
+| ResNet-101-FPN        | 90k       | 800             | N                | 40.5            | 40.9             | [Link](https://drive.google.com/open?id=1jc5ncxuuuG3-sm-4OpkOfr51ClwCWHu0 )                                                      |
+| ResNet-101-FPN        | 180k      | [640, 800]      | N                | 42.7            | 43.1             | [Link](https://drive.google.com/open?id=1OvK8Xona8v7mWU2nf5Fp1QzvwUaFhlIg )                                                      |
+| ResNet-101-FPN        | 180k      | [480, 960]      | N                | 43.2            | 43.9             | [Link](https://drive.google.com/open?id=1ZIx2HTexVyU6xTwAm2ABTYjsJuLvlfhB )                                                      |
+| ResNet-101-FPN        | 180k      | [480, 960]      | Y                | 44.7            | 45.2             | [Link](https://drive.google.com/open?id=1ZIx2HTexVyU6xTwAm2ABTYjsJuLvlfhB )                                                      |
+| ResNeXt-64x4d-101-FPN | 180k      | [640, 800]      | N                | 44.5            | 44.9             | [Link](https://drive.google.com/open?id=1MrtXoBGHceq_BBY5cH-kw2ax5-aDPdTv )                                                      |
+| ResNeXt-64x4d-101-FPN | 180k      | [480, 960]      | N                | 45.6            | 46.0             | [Link](https://drive.google.com/open?id=1r17agiu76xtwKxn2oE_pK4R847k-Cu5m )                                                      |
+| ResNeXt-64x4d-101-FPN | 180k      | [480, 960]      | Y                | 46.8            | 47.3             | [Link](https://drive.google.com/open?id=1r17agiu76xtwKxn2oE_pK4R847k-Cu5m )                                                      |
 
-| Hardware | Backbone | Iteration | Scale jittering<br>train / test | AP<br>(minival) | AP<br>(test-dev) | model link |
-| :--------: | :--------------------: | :---: | :-------: | :--: | :--: | :------------------------: |
-| 8 x 2080Ti | ResNet-50-FPN          |   90k |   N / N   | 38.4 | 38.9 | [Google Drive](https://drive.google.com/file/d/1YZ63xD4f-8d4Ozcz1H8rCTePIK2fXeea/view?usp=sharing)                  <br>[Baidu Drive](https://pan.baidu.com/s/1p2hnZPPJvtHCgntUZe2SvA#/)                                                                        |
-| 8 x 2080Ti | ResNet-101-FPN         |   90k |   N / N   | 40.4 | 41.1 | [Google Drive](https://drive.google.com/file/d/1zeGRYhMAgSVWC9ARGvXdVF0U5KSE8WMQ/view?usp=sharing)                  <br>[Baidu Drive](https://pan.baidu.com/s/1Tz5-flBPLenV9T9vkQIhBg#/)                                                                                |
-| 8 x 2080Ti | ResNet-101-FPN         |  135k |   N / N   | 41.1 | 41.5 | [Google Drive](https://drive.google.com/file/d/1al9itwiPXX8lVU1uFvzXL7BnBw9hBDnI/view?usp=sharing)                  <br>[Baidu Drive](https://pan.baidu.com/s/1efjzVT0y1HDUAUEaaZ8YLg#/)                                                                        |
-| 8 x 2080Ti | ResNeXt-101-32x8d-FPN  |  135k |   Y / N   | 44.2 | 44.9 | [Google Drive](https://drive.google.com/file/d/1vZuV4uSDR6t1Va_8E-iS9Ht7PutC_JDd/view?usp=sharing)                  <br>[Baidu Drive](https://pan.baidu.com/s/18NHsQb-ZBRS4Xcfxfmsuyw#/)                                                                                   |
+**Notes:**
 
-| Hardware | Backbone | Iteration | Scale jittering<br>train / test | AP<br>(minival) | AP<br>(test-dev) | model link |
-| :--------: | :--------------------: | :---: | :-------: | :--: | :--: | :------------------------: |
-| 8 x 2080Ti | ResNet-101-FPN         |  180k |   Y / N   | 42.7 | 43.1 | [Google Drive](https://drive.google.com/file/d/1XxOGpE5-OX5mW5fee1jxXxFhO4vmo3fk/view?usp=sharing)                  <br>[Baidu Drive](https://pan.baidu.com/s/1SGmGwu7TnfR9oyVJVxxC2g#/)                                                                                   |
+- We use 8 GPUs with 2 image / GPU. 
+- In multi-scale testing, we use image scales in {480, 640, 800, 960, 1120, 1280} and max_size are 1.666&times; than scales. 
 
 
 ## Installation 
@@ -38,23 +37,16 @@ For that, all you need to do is to modify `maskrcnn_benchmark/config/paths_catal
 #### Config Files
 We provide four configuration files in the configs directory.
 
-| Backbone | Iteration | Scale jittering<br>train / test | Config File |  
-| :-----: | :---: | :---: | :----------: |
-| ResNet-50-FPN    |   90k |   N / N  | configs/free_anchor_R-50-FPN_1x.yaml      | 
-| ResNet-101-FPN   |   90k |   N / N  | configs/free_anchor_R-101-FPN_1x.yaml     | 
-| ResNet-101-FPN   |  135k |   N / N  | configs/free_anchor_R-101-FPN_1.5x.yaml   | 
-| ResNeXt-101-32x8d-FPN  |  135k |   Y / N  | configs/free_anchor_X-101-FPN_j1.5x.yaml  | 
+| Config File                               | Backbone                | Iteration | Training scales |
+| :---------------------------------------: | :---------------------: | :-------: | :-------------: |
+| configs/free_anchor_R-50-FPN_1x.yaml      | ResNet-50-FPN           | 90k       | 800             | 
+| configs/free_anchor_R-101-FPN_1x.yaml     | ResNet-101-FPN          | 90k       | 800             |
+| configs/free_anchor_R-101-FPN_j2x.yaml    | ResNet-101-FPN          | 180k      | [640, 800]      |
+| configs/free_anchor_X-101-FPN_j2x.yaml    | ResNeXt-64x4d-101-FPN   | 180k      | [640, 800]      |
+| configs/free_anchor_R-101-FPN_e2x.yaml    | ResNet-101-FPN          | 180k      | [480, 960]      |
+| configs/free_anchor_X-101-FPN_e2x.yaml    | ResNeXt-64x4d-101-FPN   | 180k      | [480, 960]      |
 
-
-#### Training with 4 GPUs (4 images per GPU)
-
-```bash
-cd path_to_free_anchor
-export NGPUS=4
-python -m torch.distributed.launch --nproc_per_node=$NGPUS tools/train_net.py --config-file "path/to/config/file.yaml"
-```
-
-#### Training with 8 GPUs (2 images per GPU)
+#### Training with 8 GPUs
 
 ```bash
 cd path_to_free_anchor
@@ -69,12 +61,20 @@ cd path_to_free_anchor
 python -m torch.distributed.launch --nproc_per_node=$NGPUS tools/test_net.py --config-file "path/to/config/file.yaml" MODEL.WEIGHT "path/to/.pth file" DATASETS.TEST "('coco_test-dev',)"
 ```
 
+#### Multi-scale testing
+
+```bash
+cd path_to_free_anchor
+python -m torch.distributed.launch --nproc_per_node=$NGPUS tools/multi_scale_test.py --config-file "path/to/config/file.yaml" MODEL.WEIGHT "path/to/.pth file" DATASETS.TEST "('coco_test-dev',)"
+```
+
 #### Evaluate NMS Recall
 
 ```bash
 cd path_to_free_anchor
-python  -m torch.distributed.launch --nproc_per_node=$NGPUS tools/eval_NR.py --config-file "path/to/config/file.yaml" MODEL.WEIGHT "path/to/.pth file"
+python -m torch.distributed.launch --nproc_per_node=$NGPUS tools/eval_NR.py --config-file "path/to/config/file.yaml" MODEL.WEIGHT "path/to/.pth file"
 ```
+
 ## Citations
 Please consider citing our paper in your publications if the project helps your research.
 ```
@@ -85,3 +85,4 @@ Please consider citing our paper in your publications if the project helps your 
   year    =  {2019}
 }
 ```
+

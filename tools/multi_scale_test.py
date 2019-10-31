@@ -1,8 +1,3 @@
-# Copyright (c) Facebook, Inc. and its affiliates. All Rights Reserved.
-# Set up custom environment before nearly anything else is imported
-# NOTE: this should be the first import (no not reorder)
-from maskrcnn_benchmark.utils.env import setup_environment  # noqa F401 isort:skip
-
 import argparse
 import os
 
@@ -23,14 +18,9 @@ def main():
     parser = argparse.ArgumentParser(description="PyTorch Object Detection Inference")
     parser.add_argument(
         "--config-file",
-        default="configs/free_anchor_R-50-FPN_1x.yaml",
+        default="configs/free_anchor_X-101-FPN_j2x.yaml",
         metavar="FILE",
         help="path to config file",
-    )
-    parser.add_argument(
-        "--scales",
-        help="",
-        default=(480, 640, 800, 960,),
     )
     parser.add_argument("--local_rank", type=int, default=0)
     parser.add_argument(
@@ -47,7 +37,7 @@ def main():
 
     if distributed:
         torch.cuda.set_device(args.local_rank)
-        torch.distributed.deprecated.init_process_group(
+        torch.distributed.init_process_group(
             backend="nccl", init_method="env://"
         )
 
@@ -64,7 +54,7 @@ def main():
     logger.info("Collecting env info (might take some time)")
     logger.info("\n" + collect_env_info())
 
-    model = MultiScaleRetinaNet(build_detection_model(cfg), args.scales)
+    model = MultiScaleRetinaNet(build_detection_model(cfg), cfg.TEST.MULTI_SCLAES)
     model.to(cfg.MODEL.DEVICE)
 
     checkpointer = DetectronCheckpointer(cfg, model)

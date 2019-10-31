@@ -12,9 +12,7 @@ from .roi_pool import ROIPool
 from .roi_pool import roi_pool
 from .smooth_l1_loss import smooth_l1_loss, SmoothL1Loss
 from .sigmoid_focal_loss import SigmoidFocalLoss
-from .adjust_smooth_l1_loss import AdjustSmoothL1Loss
 
 __all__ = ["nms", "roi_align", "ROIAlign", "roi_pool", "ROIPool",
            "smooth_l1_loss", "SmoothL1Loss", "Conv2d", "ConvTranspose2d",
-           "interpolate", "FrozenBatchNorm2d", "SigmoidFocalLoss",
-           "AdjustSmoothL1Loss"]
+           "interpolate", "FrozenBatchNorm2d", "SigmoidFocalLoss"]
