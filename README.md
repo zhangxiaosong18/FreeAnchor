@@ -74,6 +74,7 @@ python -m torch.distributed.launch --nproc_per_node=$NGPUS tools/multi_scale_tes
 cd path_to_free_anchor
 python -m torch.distributed.launch --nproc_per_node=$NGPUS tools/eval_NR.py --config-file "path/to/config/file.yaml" MODEL.WEIGHT "path/to/.pth file"
 ```
+
 ## Citations
 Please consider citing our paper in your publications if the project helps your research.
 ```
