@@ -2,7 +2,7 @@
 
 The Code for ["FreeAnchor: Learning to Match Anchors for Visual Object Detection"](https://arxiv.org/abs/1909.02466).
 
-This repo is based on maskrcnn-benchmark, and FreeAnchor has also been implemented in [mmdetection](https://github.com/open-mmlab/mmdetection), thanks [@yhcao6](https://github.com/yhcao6) and [@hellock](https://github.com/hellock).
+This repository is based on maskrcnn-benchmark, and FreeAnchor has also been implemented in [mmdetection](https://github.com/open-mmlab/mmdetection), thanks [@yhcao6](https://github.com/yhcao6) and [@hellock](https://github.com/hellock).
 
 ![architecture](architecture.png)
 
